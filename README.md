@@ -2,6 +2,8 @@
 
 Website statis satu halaman untuk profil akademik dan portofolio, dibuat dengan HTML, CSS, dan JavaScript tanpa proses build atau dependensi tambahan. Konten tersedia dalam Bahasa Indonesia dan English melalui tombol bahasa di navigasi; pilihan bahasa disimpan di browser.
 
+Navigasi bagian di sisi kanan menampilkan progres halaman dan menyorot bagian yang sedang dibaca. Arahkan kursor atau gunakan keyboard untuk membuka label dan melompat ke bagian lain.
+
 ## Menjalankan secara lokal
 
 Buka `index.html` di browser. Seluruh interaksi utama berjalan tanpa server.

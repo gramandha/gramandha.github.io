@@ -3,6 +3,11 @@ const themeToggle = document.querySelector(".theme-toggle");
 const menuToggle = document.querySelector(".menu-toggle");
 const siteNav = document.querySelector(".site-nav");
 const languageToggle = document.querySelector(".language-toggle");
+const sectionSidebar = document.querySelector(".section-sidebar");
+const sectionLinks = [...sectionSidebar.querySelectorAll("a")];
+const sidebarPercent = sectionSidebar.querySelector("[data-scroll-percent]");
+const sidebarProgress = sectionSidebar.querySelector(".sidebar-progress");
+const sidebarCurrentSection = sectionSidebar.querySelector("[data-current-section]");
 const savedTheme = localStorage.getItem("portfolio-theme");
 const savedLanguage = localStorage.getItem("portfolio-language");
 const originalText = new WeakMap();
@@ -14,10 +19,19 @@ const englishTranslations = new Map(Object.entries({
   "Buka menu navigasi": "Open navigation menu",
   "Tutup menu navigasi": "Close navigation menu",
   "Navigasi utama": "Main navigation",
+  "Navigasi bagian": "Section navigation",
+  "Progres halaman": "Page progress",
+  "BAGIAN AKTIF": "ACTIVE SECTION",
+  "Beranda": "Home",
   "Tentang": "About",
+  "Riset": "Research",
+  "Keterampilan": "Skills",
+  "Proyek": "Projects",
+  "Karya": "Works",
   "Fokus riset": "Research",
   "Karya & buku": "Works & books",
   "Publikasi": "Publications",
+  "Jejak akademik": "Academic journey",
   "Kontak": "Contact",
   "Aktifkan mode terang": "Switch to light mode",
   "Aktifkan mode gelap": "Switch to dark mode",
@@ -179,6 +193,43 @@ function normalizeText(value) {
   return value.replace(/\s+/g, " ").trim();
 }
 
+function updateSectionSidebar() {
+  const scrollableHeight = root.scrollHeight - window.innerHeight;
+  const progress = scrollableHeight > 0
+    ? Math.min(100, Math.max(0, Math.round((window.scrollY / scrollableHeight) * 100)))
+    : 0;
+  sidebarPercent.textContent = String(progress).padStart(2, "0");
+  sidebarProgress.setAttribute("aria-valuenow", String(progress));
+  sectionSidebar.style.setProperty("--scroll-progress", `${progress}%`);
+
+  const activationPoint = window.scrollY + window.innerHeight * 0.35;
+  let activeLink = sectionLinks[0];
+  sectionLinks.forEach((link) => {
+    const section = document.querySelector(link.getAttribute("href"));
+    if (section && section.getBoundingClientRect().top + window.scrollY <= activationPoint) {
+      activeLink = link;
+    }
+  });
+
+  sectionLinks.forEach((link) => {
+    if (link === activeLink) {
+      link.setAttribute("aria-current", "location");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+  sidebarCurrentSection.textContent = activeLink.querySelector(".sidebar-label").textContent;
+}
+
+let sidebarFrame = 0;
+function scheduleSectionSidebarUpdate() {
+  if (sidebarFrame) return;
+  sidebarFrame = window.requestAnimationFrame(() => {
+    updateSectionSidebar();
+    sidebarFrame = 0;
+  });
+}
+
 function setLanguage(language) {
   const isEnglish = language === "en";
   root.lang = isEnglish ? "en" : "id";
@@ -238,6 +289,9 @@ function setLanguage(language) {
 }
 
 setLanguage(savedLanguage === "en" ? "en" : "id");
+updateSectionSidebar();
+window.addEventListener("scroll", scheduleSectionSidebarUpdate, { passive: true });
+window.addEventListener("resize", scheduleSectionSidebarUpdate);
 
 themeToggle.addEventListener("click", () => {
   root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
