@@ -16,14 +16,8 @@ Buka `index.html` di browser. Seluruh interaksi utama berjalan tanpa server.
 4. Pilih branch `main` dan folder `/ (root)`, lalu simpan.
 5. Tunggu GitHub Pages menerbitkan website.
 
-## Sebelum dipublikasikan
-
-- Periksa kembali gelar, riwayat pendidikan, dan riwayat pekerjaan; tidak ditambahkan karena belum terverifikasi dari tautan profil yang diberikan.
+## Publikasi update
 - Periksa metadata publikasi dan metrik langsung di Google Scholar/SINTA. Sitasi dan indeks dapat berubah.
-- Tambahkan email institusi atau tautan kontak pilihan Anda bila ingin menerima pesan langsung dari website.
-- Ganti ilustrasi ROV CSS dengan foto atau video proyek asli bila tersedia.
-- Hero menggunakan komposisi gelap sinematik dengan ilustrasi ROV animasi sebagai latar. Animasi mengikuti preferensi reduced motion dari perangkat.
-- Foto profil pada halaman menggunakan `pribadi_pic.png`.
-- Proyek GitHub dan tautan profil publik ditampilkan dari profil/repository publik yang diperiksa pada Oktober 2026. Tinjau ulang tautan dan ringkasan proyek jika repository berubah.
+- Proyek GitHub dan tautan profil publik ditampilkan dari profil/repository publik yang diperiksa pada Oktober 2026. 
 
 Tombol **Simpan profil sebagai PDF** membuka dialog cetak browser. Pilih **Save as PDF / Simpan sebagai PDF** untuk menyimpan versi cetak halaman sebagai CV ringkas.
