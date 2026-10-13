@@ -160,7 +160,28 @@ const englishTranslations = new Map(Object.entries({
   "Publikasi & sitasi": "Publications & citations",
   "Data dosen nasional": "National lecturer data",
   "Metrik bersumber dari profil masing-masing dan dapat berbeda antarplatform.": "Metrics come from each profile and may differ across platforms.",
+  "HUBUNGI SAYA": "GET IN TOUCH",
+  "/ HUBUNGI SAYA": "/ GET IN TOUCH",
+  "Mari": "Let's",
+  "berkolaborasi.": "collaborate.",
+  "Mahasiswa, peneliti, dan mitra industri dipersilakan menghubungi saya untuk diskusi riset, kolaborasi akademik, atau bimbingan mahasiswa.": "Students, researchers, and industry partners are welcome to contact me for research discussions, academic collaboration, or student mentorship.",
+  "Alamat Kantor": "Office Address",
+  "Teknik Elektro - Universitas Jember": "Electrical Engineering - University of Jember",
+  "Publikasi dan sitasi": "Publications and citations",
+  "Proyek dan eksperimen": "Projects and experiments",
   "TERBUKA UNTUK KOLABORASI": "OPEN TO COLLABORATION",
+  "Kirim Pesan": "Send a Message",
+  "Nama Lengkap": "Full Name",
+  "Nama Anda": "Your name",
+  "nama@contoh.com": "your@email.com",
+  "Tujuan": "Purpose",
+  "Mahasiswa – Riset S1": "Student – S1 Research",
+  "Kolaborasi penelitian": "Research collaboration",
+  "Undangan akademik": "Academic invitation",
+  "Lainnya": "Other",
+  "Pesan": "Message",
+  "Ceritakan pesan Anda...": "Tell me about your interest...",
+  "Tombol ini akan membuka aplikasi email untuk mengirim pesan ke gramandha@unej.ac.id.": "This button opens your email app to send a message to gramandha@unej.ac.id.",
   "/ TERBUKA UNTUK KOLABORASI": "/ OPEN TO COLLABORATION",
   "Mari wujudkan": "Let's bring",
   "ide": "ideas",
@@ -250,10 +271,10 @@ function setLanguage(language) {
     node = walker.nextNode();
   }
 
-  document.querySelectorAll("[aria-label], [alt], [title]").forEach((element) => {
+  document.querySelectorAll("[aria-label], [alt], [title], [placeholder]").forEach((element) => {
     if (!originalAttributes.has(element)) originalAttributes.set(element, {});
     const originals = originalAttributes.get(element);
-    ["aria-label", "alt", "title"].forEach((attribute) => {
+    ["aria-label", "alt", "title", "placeholder"].forEach((attribute) => {
       const value = element.getAttribute(attribute);
       if (!value) return;
       const translation = englishTranslations.get(value);
@@ -292,6 +313,20 @@ setLanguage(savedLanguage === "en" ? "en" : "id");
 updateSectionSidebar();
 window.addEventListener("scroll", scheduleSectionSidebarUpdate, { passive: true });
 window.addEventListener("resize", scheduleSectionSidebarUpdate);
+
+sectionSidebar.querySelector('a[href="#top"]').addEventListener("click", (event) => {
+  event.preventDefault();
+  if (window.location.hash !== "#top") {
+    window.history.pushState(null, "", "#top");
+  }
+  const previousScrollBehavior = root.style.scrollBehavior;
+  root.style.scrollBehavior = "auto";
+  window.scrollTo(0, 0);
+  updateSectionSidebar();
+  requestAnimationFrame(() => {
+    root.style.scrollBehavior = previousScrollBehavior;
+  });
+});
 
 themeToggle.addEventListener("click", () => {
   root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
@@ -336,6 +371,27 @@ document.querySelectorAll("[data-filter]").forEach((button) => {
 
 document.querySelector("[data-print-cv]").addEventListener("click", () => window.print());
 document.querySelector("[data-year]").textContent = new Date().getFullYear();
+
+document.querySelector(".contact-form").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const formData = new FormData(event.currentTarget);
+  const name = String(formData.get("name") || "").trim();
+  const email = String(formData.get("email") || "").trim();
+  const purpose = String(formData.get("purpose") || "").trim();
+  const message = String(formData.get("message") || "").trim();
+  const isEnglish = root.lang === "en";
+  const subject = `${isEnglish ? "Message from website" : "Pesan dari situs web"}: ${name}`;
+  const body = [
+    `${isEnglish ? "Name" : "Nama"}: ${name}`,
+    `Email: ${email}`,
+    `${isEnglish ? "Purpose" : "Tujuan"}: ${purpose}`,
+    "",
+    `${isEnglish ? "Message" : "Pesan"}:`,
+    message
+  ].join("\n");
+
+  window.location.href = `mailto:gramandha@unej.ac.id?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
 
 document.querySelector(".back-top").addEventListener("click", (event) => {
   event.preventDefault();
