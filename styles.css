@@ -226,7 +226,14 @@ h1 { max-width: 690px; margin: 28px 0 20px; font-size: clamp(44px, 5.5vw, 68px);
 .about-meta > div { display: flex; flex-direction: column; gap: 5px; }
 .meta-label { color: var(--muted); font-size: 8px; }
 .about-meta strong { font-size: 10px; font-weight: 600; }
-.about-content .data-note { margin: 4px 0 0; font-size: 9px; }
+.education-history { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+.education-heading { margin: 0 0 12px; color: var(--muted); font-family: var(--mono); font-size: 9px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+.education-list { display: grid; gap: 15px; margin: 0; padding: 0; list-style: none; }
+.education-item { display: grid; grid-template-columns: 72px 1fr; gap: 12px; }
+.education-year { padding-top: 2px; color: var(--accent-strong); font-family: var(--mono); font-size: 9px; }
+.education-item h4 { margin: 0; font-size: 11px; font-weight: 700; line-height: 1.5; }
+.education-item p { margin: 3px 0 0; font-size: 10px; line-height: 1.6; }
+.education-item .education-institution { color: var(--ink); }
 
 .research { padding-bottom: 0; }
 .section-heading-row { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin: 32px 0 39px; }
@@ -579,6 +586,9 @@ a.contact-info-item:hover .contact-info-copy > span { text-decoration: underline
   .about-content p { font-size: 11px; }
   .about-meta { gap: 8px; }
   .about-meta strong { font-size: 9px; }
+  .education-item { grid-template-columns: 58px 1fr; gap: 8px; }
+  .education-item h4 { font-size: 10px; }
+  .education-item p { font-size: 9px; }
   .skills-layout { grid-template-columns: 1fr; gap: 22px; margin-top: 26px; }
   .skills-intro .section-title { margin-bottom: 12px; }
   .skills-intro > p { max-width: 400px; font-size: 10px; }
