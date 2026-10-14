@@ -1,3 +1,4 @@
+// Gramandha Wega Intyanto — Academic Portfolio
 const root = document.documentElement;
 const themeToggle = document.querySelector(".theme-toggle");
 const menuToggle = document.querySelector(".menu-toggle");
