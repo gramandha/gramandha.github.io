@@ -305,20 +305,6 @@ h1 { max-width: 690px; margin: 28px 0 20px; font-size: clamp(44px, 5.5vw, 68px);
 .project-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
 .text-link { display: inline-flex; align-items: center; gap: 12px; border-bottom: 1px solid #92b476; padding-bottom: 4px; font-size: 10px; font-weight: 600; }
 .text-link span { color: #719f45; font-size: 14px; }
-.github-project-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin: 53px 0 21px; }
-.github-project-heading .project-index { display: block; margin-bottom: 7px; }
-.github-project-heading h2 { margin: 0; font-family: var(--display); font-size: 22px; font-weight: 600; letter-spacing: -.05em; }
-.github-project-heading > .text-link { flex: 0 0 auto; margin-bottom: 3px; }
-.github-project-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
-.github-project-card { display: flex; flex-direction: column; align-items: flex-start; min-height: 230px; padding: 22px 23px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background-color .2s ease; }
-.github-project-card:hover { background: var(--surface); }
-.github-project-top { width: 100%; display: flex; justify-content: space-between; color: var(--muted); font-family: var(--mono); font-size: 8px; letter-spacing: .09em; }
-.github-project-card h3 { margin: 24px 0 8px; font-family: var(--display); font-size: 16px; letter-spacing: -.04em; }
-.github-project-card p { max-width: 440px; margin-bottom: 14px; color: var(--muted); font-size: 10px; line-height: 1.8; }
-.github-project-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; margin-bottom: 17px; }
-.github-project-tags span { padding: 4px 7px; border: 1px solid var(--line); border-radius: 2px; color: var(--muted); font-family: var(--mono); font-size: 7px; }
-.github-project-card > a { display: inline-flex; align-items: center; gap: 9px; color: var(--ink); font-size: 9px; font-weight: 600; }
-.github-project-card > a span { color: #719f45; font-size: 13px; }
 
 .creation-group { margin-top: 39px; }
 .creation-group + .creation-group { margin-top: 53px; }
@@ -354,54 +340,42 @@ h1 { max-width: 690px; margin: 28px 0 20px; font-size: clamp(44px, 5.5vw, 68px);
 .publication-link:hover { background: var(--accent); }
 .publication-note { margin: 14px 0 0; color: var(--muted); font-size: 9px; }
 
-.impact-inner { position: relative; padding: 43px 48px 31px; background: var(--surface-soft); }
-.impact-copy { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin: 28px 0 30px; }
-.impact-copy p { max-width: 280px; margin: 0 0 3px; color: var(--muted); font-size: 11px; }
+.impact-contact { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: stretch; gap: 24px; padding-bottom: 104px; }
+.impact-inner { position: relative; min-width: 0; padding: 30px 28px 24px; background: var(--surface-soft); }
+.impact-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin: 20px 0; }
+.impact-copy .section-title { font-size: clamp(28px, 3vw, 38px); }
+.impact-copy p { max-width: 340px; margin: 0; color: var(--muted); font-size: 10px; }
 .profile-links { border-top: 1px solid var(--line); }
-.profile-links a { display: grid; grid-template-columns: 1fr 1fr 24px; align-items: center; min-height: 57px; border-bottom: 1px solid var(--line); transition: padding .2s ease; }
+.profile-links a { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1fr) 20px; align-items: center; min-height: 45px; border-bottom: 1px solid var(--line); transition: padding .2s ease; }
 .profile-links a:hover { padding-inline: 8px; }
-.profile-brand { font-size: 12px; font-weight: 600; }
-.profile-description { color: var(--muted); font-size: 10px; }
+.profile-brand { font-size: 10px; font-weight: 600; }
+.profile-description { color: var(--muted); font-size: 8px; }
 .profile-arrow { justify-self: end; color: #719f45; }
-.impact-inner > .metric-footnote { margin-top: 17px; }
+.impact-inner > .metric-footnote { margin-top: 13px; font-size: 7px; line-height: 1.5; }
 
-.contact { padding-bottom: 104px; }
-.contact-layout { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: clamp(32px, 5vw, 72px); }
-.contact-intro .section-kicker { margin-bottom: 12px; color: var(--accent-strong); font-size: 10px; font-weight: 500; }
-.contact-section-title { margin: 0 0 18px; font-family: var(--display); font-size: clamp(34px, 4vw, 48px); font-weight: 800; letter-spacing: -.06em; line-height: 1.1; }
-.contact .contact-section-title > span { color: var(--accent-strong); }
-.contact-intro-copy { max-width: 460px; margin-bottom: 27px; color: var(--muted); font-size: 13px; line-height: 1.9; }
-.contact-info-list { display: flex; flex-direction: column; gap: 14px; }
-.contact-info-item { display: flex; min-width: 0; align-items: center; gap: 13px; }
-a.contact-info-item:hover .contact-info-copy > span { text-decoration: underline; text-underline-offset: 3px; }
-.contact-info-icon { width: 42px; height: 42px; display: grid; flex: 0 0 42px; place-items: center; border: 1px solid color-mix(in srgb, var(--accent) 42%, var(--line)); border-radius: 3px; background: var(--accent); color: var(--accent-ink); }
-.contact-info-icon svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
-.contact-info-copy { display: flex; min-width: 0; flex-direction: column; gap: 1px; font-size: 12px; line-height: 1.6; }
-.contact-info-copy strong { color: var(--ink); font-size: 12px; font-weight: 700; }
-.contact-info-copy > span { overflow-wrap: anywhere; color: var(--muted); }
-.contact-info-item[href] .contact-info-copy > span { color: var(--accent-strong); }
-.contact-panel { min-width: 0; padding: 34px; border: 1px solid var(--line); border-top: 2px solid var(--accent); border-radius: 3px; background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
-.contact-form-title { margin: 0 0 22px; font-size: 23px; font-weight: 800; letter-spacing: -.04em; }
-.contact-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; }
+.contact-panel { min-width: 0; padding: 26px; border: 1px solid var(--line); border-top: 2px solid var(--accent); border-radius: 3px; background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+.contact-panel > .section-kicker { margin-bottom: 8px; color: var(--accent-strong); font-size: 9px; font-weight: 500; }
+.contact-form-title { margin: 0 0 18px; font-size: 21px; font-weight: 800; letter-spacing: -.04em; }
+.contact-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px 12px; }
 .contact-field { display: flex; min-width: 0; flex-direction: column; gap: 7px; }
 .contact-field-full { grid-column: 1 / -1; }
-.contact-field label { color: var(--ink); font-size: 13px; font-weight: 700; }
+.contact-field label { color: var(--ink); font-size: 11px; font-weight: 700; }
 .contact-field input, .contact-field select, .contact-field textarea {
   width: 100%;
-  min-height: 54px;
+  min-height: 44px;
   border: 1px solid var(--line);
   border-radius: 3px;
-  padding: 0 16px;
+  padding: 0 12px;
   background: var(--surface);
   color: var(--ink);
   font: inherit;
-  font-size: 14px;
+  font-size: 12px;
 }
 .contact-field input::placeholder, .contact-field textarea::placeholder { color: var(--muted); opacity: .85; }
 .contact-field input:focus, .contact-field select:focus, .contact-field textarea:focus { border-color: #719f45; outline: 2px solid rgb(113 159 69 / 18%); }
-.contact-field textarea { min-height: 125px; padding-top: 12px; resize: vertical; }
+.contact-field textarea { min-height: 90px; padding-top: 10px; resize: vertical; }
 .contact-submit {
-  min-height: 56px;
+  min-height: 46px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -411,14 +385,14 @@ a.contact-info-item:hover .contact-info-copy > span { text-decoration: underline
   background: var(--accent);
   color: var(--accent-ink);
   font: inherit;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
   transition: background-color .2s ease, transform .2s ease;
 }
 .contact-submit:hover { transform: translateY(-1px); background: #c5fa83; }
 .contact-submit svg { width: 18px; fill: currentColor; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; }
-.contact-form-note { margin: -9px 0 0; color: var(--muted); font-size: 11px; text-align: center; }
+.contact-form-note { margin: -7px 0 0; color: var(--muted); font-size: 9px; text-align: center; }
 
 .site-footer { display: grid; grid-template-columns: 1fr 1.2fr 1fr; align-items: center; gap: 20px; min-height: 100px; border-top: 1px solid var(--line); }
 .footer-brand .brand-mark { font-size: 16px; }.footer-brand .brand-name { font-size: 10px; }
@@ -525,13 +499,11 @@ a.contact-info-item:hover .contact-info-copy > span { text-decoration: underline
   .research-card p { min-height: auto; }
   .project-details { padding: 34px 30px; }
   .project-details h2 { font-size: 24px; }
-  .github-project-card { min-height: 245px; padding: 19px 17px; }
   .creation-grid { grid-template-columns: 1fr; }
   .book-grid .creation-card { min-height: 0; }
   .site-footer { grid-template-columns: 1fr 1fr; }
   .footer-note { display: none; }
-  .contact-layout { grid-template-columns: 1fr; gap: 32px; }
-  .contact-intro-copy { max-width: 620px; }
+  .impact-contact { grid-template-columns: 1fr; gap: 20px; }
 }
 @media (max-width: 620px) {
   html { scroll-padding-top: 70px; }
@@ -608,11 +580,6 @@ a.contact-info-item:hover .contact-info-copy > span { text-decoration: underline
   .project-details { padding: 30px 24px; }
   .project-details h2 { font-size: 25px; }
   .project-details p { font-size: 10px; }
-  .github-project-heading { align-items: flex-start; flex-direction: column; gap: 14px; margin-top: 38px; }
-  .github-project-heading h2 { font-size: 20px; }
-  .github-project-grid { grid-template-columns: 1fr; }
-  .github-project-card { min-height: 205px; padding: 19px 16px; }
-  .github-project-card h3 { margin-top: 19px; }
   .creation-group { margin-top: 30px; }
   .creation-group + .creation-group { margin-top: 39px; }
   .creation-group-heading { align-items: flex-start; flex-direction: column; gap: 12px; }
@@ -629,22 +596,14 @@ a.contact-info-item:hover .contact-info-copy > span { text-decoration: underline
   .publication-main h3 { font-size: 10px; }
   .publication-main p { font-size: 8px; }
   .publication-link { width: 25px; height: 25px; }
-  .impact-inner { padding: 30px 20px 24px; }
-  .impact-copy { align-items: flex-start; flex-direction: column; gap: 12px; margin: 25px 0; }
-  .impact-copy p { font-size: 10px; }
-  .profile-links a { grid-template-columns: 1fr 1.1fr 20px; min-height: 55px; }
+  .impact-contact { gap: 15px; padding-bottom: 70px; }
+  .impact-inner { padding: 27px 20px 22px; }
+  .impact-copy { gap: 10px; margin: 20px 0; }
+  .impact-copy .section-title { font-size: 32px; }
+  .profile-links a { grid-template-columns: minmax(0, .8fr) minmax(0, 1fr) 20px; min-height: 47px; }
   .profile-brand { font-size: 10px; }
   .profile-description { font-size: 8px; }
-  .contact { padding-bottom: 70px; }
   .contact-panel { padding: 26px 20px; }
-  .contact-layout { gap: 25px; }
-  .contact-intro .section-kicker { font-size: 9px; }
-  .contact-section-title { font-size: 36px; }
-  .contact-intro-copy { margin-bottom: 21px; font-size: 11px; }
-  .contact-info-list { gap: 12px; }
-  .contact-info-icon { width: 38px; height: 38px; flex-basis: 38px; }
-  .contact-info-copy, .contact-info-copy strong { font-size: 11px; }
-  .contact-form-title { font-size: 21px; }
   .contact-form { grid-template-columns: 1fr; gap: 16px; }
   .contact-field-full { grid-column: auto; }
   .contact-form-note { margin-top: -5px; }
@@ -671,7 +630,7 @@ a.contact-info-item:hover .contact-info-copy > span { text-decoration: underline
   .metrics { padding: 15px 0; }
   .research-card, .project-feature, .impact-inner, .contact-panel { break-inside: avoid; }
   .reveal { opacity: 1; transform: none; }
-  .contact { padding-bottom: 24px; }
+  .impact-contact { padding-bottom: 24px; }
   .contact-panel { padding: 25px; }
   .site-footer { min-height: 40px; }
 }
