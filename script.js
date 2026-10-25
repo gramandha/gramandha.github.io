@@ -36,7 +36,7 @@ const englishTranslations = new Map(Object.entries({
   "Kontak": "Contact",
   "Aktifkan mode terang": "Switch to light mode",
   "Aktifkan mode gelap": "Switch to dark mode",
-  "Dosen · Robotika & AI · Universitas Jember": "Lecturer · Robotics & AI · University of Jember",
+  "Dosen · Robotika & Visi Mesin · Universitas Jember": "Lecturer · Robotics & Mechine Vision · University of Jember",
   "Dosen dan peneliti Teknik Elektro yang mengeksplorasi robotika bawah air, computer vision, dan kecerdasan buatan.": "An Electrical Engineering lecturer and researcher exploring underwater robotics, computer vision, and artificial intelligence.",
   "Jelajahi publikasi": "Explore publications",
   "Simpan profil sebagai PDF": "Save profile as PDF",
